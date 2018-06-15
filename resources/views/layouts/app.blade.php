@@ -85,12 +85,19 @@
 </div>
 
 <!-- Scripts -->
+
 <script src="{{ asset('js/app.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/jquery.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/bootstrap.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/pinterest_grid.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/bootstrap-number-input.js') }}"></script>
+<script type="text/javascript" >
+    $('#exampleModal').on('shown.bs.modal', function () {
+        $('#tarjeta').focus();
+    })
+
+</script>
 @yield('js')
 </body>
 </html>

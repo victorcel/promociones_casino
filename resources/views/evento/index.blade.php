@@ -19,19 +19,15 @@
                         <h3>{{$evento->nombreEvento}}</h3>
                         <img src="{{ asset($evento->imagen )}}" class="img-responsive img-shirt">
                         <br>
-                        @if($evento->nombreEvento=="Polla Mundialista")
-                            <input type="button" value='INGRESAR'
-                                   onclick="window.location.href='https://polla.local'"
-                                   class="btn btn-success btn-lg "
-                                   style='width:100px; height: 70px;text-align: center'/>
-                        @else
-                            <input type="button" value='INGRESAR'
-                                   onclick="window.location.href='https://chance.local:446/'"
-                                   class="btn btn-success btn-lg "
-                                   style='width:100px; height: 70px;text-align: center'/>
-                        @endif
+                        {{--<input id="tarjeta" type="text" class="form-control"  name="tarjeta" value="{{ old('tarjeta') }}"required autofocus/>--}}
+                        {{--href="{{ route('evento.show', $evento->id) }}"--}}
+                        <a  data-toggle="modal" data-target="#exampleModal"
+                           class="btn btn-success btn-lg "
+                           >INGRESAR</a>
+
                     </div>
                 </div>
+                @extends('layouts.showModal')
             @endforeach
 
         </div>

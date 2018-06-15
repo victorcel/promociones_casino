@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    $eventos = \App\Evento::Paginate(2);
+    $eventos = \App\Evento::Paginate(1);
     //return  \Redirect::away('https://eventos.local/');
     //dd($eventos);
     return view('evento.index', compact('eventos'));
@@ -21,3 +21,4 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::resource('evento','EventoController');
