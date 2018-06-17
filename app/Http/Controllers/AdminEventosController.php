@@ -33,6 +33,8 @@
 			$this->col[] = ["label"=>"Nombre Del Evento","name"=>"nombreEvento"];
 			$this->col[] = ["label"=>"Descripcion","name"=>"Descripcion"];
 			$this->col[] = ["label"=>"Puntos","name"=>"puntos"];
+			$this->col[] = ["label"=>"Periodo","name"=>"periodo"];
+			$this->col[] = ["label"=>"Periodo Numero","name"=>"periodoNumero"];
 			$this->col[] = ["label"=>"Fecha Inicio","name"=>"FechaInicio"];
 			$this->col[] = ["label"=>"Fecha Fin","name"=>"FechaFin"];
 			$this->col[] = ["label"=>"Estado","name"=>"estado"];
@@ -45,9 +47,11 @@
 			$this->form[] = ['label'=>'Descripcion','name'=>'Descripcion','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
 			$this->form[] = ['label'=>'Puntos','name'=>'puntos','type'=>'number','validation'=>'required|integer|min:0','width'=>'col-sm-10'];
 			$this->form[] = ['label'=>'Imagen','name'=>'imagen','type'=>'upload','validation'=>'required|image','width'=>'col-sm-9'];
+			$this->form[] = ['label'=>'Periodo','name'=>'periodo','type'=>'select','validation'=>'required|string','width'=>'col-sm-9','dataenum'=>'Hora;Dia;Mes'];
+			$this->form[] = ['label'=>'Periodo Numero','name'=>'periodoNumero','type'=>'number','validation'=>'required|integer|min:0|max:30','width'=>'col-sm-9'];
 			$this->form[] = ['label'=>'Fecha Inicio','name'=>'FechaInicio','type'=>'date','validation'=>'required|date','width'=>'col-sm-10'];
 			$this->form[] = ['label'=>'Fecha Fin','name'=>'FechaFin','type'=>'date','validation'=>'required|date','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Estado','name'=>'estado','type'=>'select','validation'=>'required|min:1|max:255|string','width'=>'col-sm-10','dataenum'=>'Activo;Inactivo'];
+			$this->form[] = ['label'=>'Estado','name'=>'estado','type'=>'select','validation'=>'required|string','width'=>'col-sm-10','dataenum'=>'Activo;Inactivo'];
 			# END FORM DO NOT REMOVE THIS LINE
 
 			# OLD START FORM
@@ -56,9 +60,11 @@
 			//$this->form[] = ['label'=>'Descripcion','name'=>'Descripcion','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
 			//$this->form[] = ['label'=>'Puntos','name'=>'puntos','type'=>'number','validation'=>'required|integer|min:0','width'=>'col-sm-10'];
 			//$this->form[] = ['label'=>'Imagen','name'=>'imagen','type'=>'upload','validation'=>'required|image','width'=>'col-sm-9'];
+			//$this->form[] = ['label'=>'Periodo','name'=>'periodo','type'=>'select','validation'=>'required|string','width'=>'col-sm-9','dataenum'=>'Hora;Dia;Mes'];
+			//$this->form[] = ['label'=>'Periodo Numero','name'=>'periodoNumero','type'=>'number','validation'=>'required|integer|min:0|max:30','width'=>'col-sm-9'];
 			//$this->form[] = ['label'=>'Fecha Inicio','name'=>'FechaInicio','type'=>'date','validation'=>'required|date','width'=>'col-sm-10'];
-			//$this->form[] = ['label'=>'Fecha Fin','name'=>'FechaFin','type'=>'date','validation'=>'required|date','width'=>'col-sm-10'];
-			//$this->form[] = ['label'=>'Estado','name'=>'estado','type'=>'select','validation'=>'required|min:1|max:255|string','width'=>'col-sm-10','dataenum'=>'Activo;Inactivo'];
+			//$this->form[] = ['label'=>'Fecha Fin','name'=>'FechaFin','type'=>'date','validation'=>'required|date','width'=>'col-sm-10','dataenum'=>'Activo;Inactivo'];
+			//$this->form[] = ['label'=>'Estado','name'=>'estado','type'=>'select','validation'=>'required|min:1|max:255|string','width'=>'col-sm-10'];
 			# OLD END FORM
 
 			/* 

@@ -19,6 +19,8 @@ class CreateEventosTable extends Migration
             $table->string('Descripcion');
             $table->unsignedInteger('puntos');
             $table->string('imagen');
+            $table->enum('periodo',['hora','dia','mes']);
+            $table->unsignedInteger('periodoNumero');
             $table->date('FechaInicio');
             $table->date('FechaFin');
             $table->enum('estado', ['Activo', 'Inactivo']);
