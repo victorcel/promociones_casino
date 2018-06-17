@@ -6,7 +6,7 @@
     <div class="container text-center " style="">
         @include('layouts.info')
         @include('layouts.error')
-        {{--@include('layouts.message')--}}
+        @include('layouts.message')
         <div>
             {{ $eventos->links() }}
             {{--{{ $info }}--}}

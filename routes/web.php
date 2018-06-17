@@ -16,9 +16,10 @@ Route::get('/', function () {
     //return  \Redirect::away('https://eventos.local/');
     //dd($eventos);
     return view('evento.index', compact('eventos'));
-});
+})->name('index');
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+//Auth::routes();
+//Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('evento','EventoController');
+
+Route::post('evento.redimir','EventoController@redimir')->name('evento.redimir');

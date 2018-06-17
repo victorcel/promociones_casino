@@ -22,6 +22,7 @@
                         </script>
                         {!! Form::text('tarjeta', "", ['class' => 'form-control','autofocus=autofocus','required'=>'required','autocomplete'=>'off']) !!}
                         {!! Form::hidden('idEvento', $evento->id) !!}
+                        {!! Form::hidden('puntos', $evento->puntos) !!}
                     </div>
                     <div class="form-group">
                         {!! Form::submit('CONSULTAR', ['class' => 'btn btn-primary']) !!}

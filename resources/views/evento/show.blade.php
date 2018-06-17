@@ -1,71 +1,38 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container text-center">
-        @include('layouts.info')
-        @include('layouts.error')
-        @include('layouts.message')
-        <div class="page-header">
-            <h1><i class="fa fa-shopping-cart"></i> {{ config('app.name', 'Laravel') }}</h1>
-        </div>
-        <div class="table-cart">
-            <div class="table-responsive">
-                <input id="tarjeta" type="text" class="form-control " name="tarjeta" value="{{ old('tarjeta') }}"
-                       required autofocus>
-                <a href=""
-                   class="btn btn-primary btn-lg "
-                >CONSULTAR</a>
-            </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Botelas Disponibles</div>
 
-            {{--@if(count($tickets) > 0)--}}
-            {{--<p>--}}
-            {{--<a href="{{ route('ticket.trash') }}" class="btn btn-danger">--}}
-            {{--Vaciar Polla Mundialista <i class="fa fa-trash"></i>--}}
-            {{--</a>--}}
-            {{--</p>--}}
-            <div class="table-responsive">
-                {{--<table class="table table-striped table-hover table-bordered">--}}
-                {{--<thead>--}}
-                {{--<tr>--}}
-                {{--<th>Partido </th>--}}
-                {{--<th>Equipo 1</th>--}}
-                {{--<th>Equipo 2</th>--}}
-                {{--<th>Quitar</th>--}}
-                {{--</tr>--}}
-                {{--</thead>--}}
-                {{--<tbody>--}}
-                {{--@foreach ($tickets as $tic)--}}
-                {{--<tr>--}}
-                {{--<td>{{ $tic[0]['slug'] }}</td>--}}
-                {{--<td>{{ $tic[0]['equipo_1'] }}</td>--}}
-                {{--<td>{{ $tic[0]['equipo_2'] }}</td>--}}
-                {{--<td>--}}
-                {{--                                    {{ dd($tic['slug']) }}--}}
-                {{--{!! Form::open(['route' => ['ticket.destroy',$tic[1]], 'method' => 'DELETE']) !!}--}}
-                {{--<button  class="btn btn-danger fa fa-remove"></button>--}}
-                {{--{!! Form::close() !!}--}}
-                {{--</td>--}}
-                {{--</tr>--}}
-                {{--@endforeach--}}
-                {{--</tbody>--}}
-                {{--</table>--}}
-                {{--<hr>--}}
-                {{--<h3><span class="label label-success">Total: {{ $total }}</span></h3>--}}
-                {{--</div>--}}
-                {{--@else--}}
-                {{--<h3>No hay polla mundialista, agrega <a href=" {{ url('/')}}">uno</a>!</h3>--}}
-                {{--@endif--}}
-                {{--<hr>--}}
-                {{--<p>--}}
-                {{--<a href="{{ url('/') }}" class="btn btn-primary">--}}
-                {{--<i class="fa fa-chevron-circle-left"></i> Seguir Anotando Polla Mundialista--}}
-                {{--</a>--}}
-                {{--@if(count($tickets) > 0)--}}
-                {{--<a href="{{ route('ticket.save') }}" class="btn btn-primary">--}}
-                {{--<i class="fa fa-chevron-circle-right"></i> Guardar Polla Mundialista--}}
-                {{--</a>--}}
-                {{--@endif--}}
-                {{--</p>--}}
+                    <div class="panel-body">
+                        @if (session('status'))
+                            <div class="alert alert-success">
+                                {{ session('status') }}
+                            </div>
+                        @endif
+                        <h1>Tarjeta Sun Readws: <strong> {{$user[0]->username}}</strong></h1>
+                        <h1>Cliente: <strong> {{$user[0]->name}} {{ $user[0]->last_name }}</strong></h1>
+                        <h1>
+                            Numero de boletas acomuladas: <strong> {{ $numBoletas }}</strong>
+                        </h1>
+                        {!! Form::open(['route' => 'evento.redimir', 'method' => 'post'] ) !!}
+                        <input type="hidden" name="usuario" value="{{$user[0]->id}}"/>
+                        <input type="hidden" name="tarjeta" value="{{$user[0]->username}}"/>
+                            <input type="hidden" name="idEvento" value="{{$idEvento}}"/>
+                        <input type="hidden" name="puntos" value="{{ $sumaPunto }}"/>
+                        @if($numBoletas>=1)
+                            {!! Form::submit('Redimir', ['class' => 'btn btn-success btn-lg pull-left','style'=>'width:100px;height: 70px;text-align: center']) !!}
+                        @endif
+                        {!! Form::close() !!}
+                        <input type="button" value='Salir' onclick="window.location.href='{{ route('index') }}'"
+                               class="btn btn-primary btn-lg pull-right"
+                               style='width:100px; height: 70px;text-align: center'/>
+                    </div>
+                </div>
             </div>
         </div>
+    </div>
 @endsection

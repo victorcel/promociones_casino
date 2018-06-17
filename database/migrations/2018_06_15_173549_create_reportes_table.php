@@ -18,6 +18,8 @@ class CreateReportesTable extends Migration
             $table->unsignedInteger('puntos');
             $table->unsignedInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
+            $table->unsignedInteger('evento_id');
+            $table->foreign('evento_id')->references('id')->on('eventos');
             $table->timestamps();
         });
     }
